@@ -1,0 +1,97 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author Rob
+ */
+
+public class AutoModerator {
+    public static void main(String[] args){
+                   
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("What is your favorite cuss?");
+        String userInput = scan.nextLine();
+        
+        System.out.println("Well now you got detention for saying: '" + simpleCleanPost(userInput) + "'");
+        
+    }
+    
+    public static String simpleCleanPost(String userInput){
+        String cleanPost;
+        String scrubbedWord = "";
+        
+        //every replace adds to a ban count, 2 = can't post anymore?
+        int lowerCase = userInput.toLowerCase().indexOf(userInput);
+        if(lowerCase != -1){
+            cleanPost = userInput.toLowerCase().replace("shit", "s***");
+            scrubbedWord = cleanPost;
+            cleanPost = scrubbedWord.toLowerCase().replace("fuck", "f***");
+            scrubbedWord = cleanPost;
+            cleanPost = scrubbedWord.toLowerCase().replace("bitch", "b****");
+            scrubbedWord = cleanPost;
+        }
+             
+        return scrubbedWord;
+    }
+    
+    //Well here is where my additional code would be
+    //.... if I didn't have small brain. I could not for the life of me figure out
+    // how to make it do what I wanted to do with my limited knowledge
+    // was supposed to search the poem for a word the user picked and replace it with
+    // whatever they wanted but... Could not accomplish that
+    /*
+    
+    public static void goodNight(){
+        String space = "";
+        
+        System.out.println("Do not go gentle into that good night by Dylan Thomas");
+        System.out.println("Do not go gentle into that good night,");
+        System.out.println("Old age should burn and rave at close of day;");
+        System.out.println("Rage, rage against the dying of the light.");
+        System.out.println("");
+        System.out.println("Though wise men at their end know dark is right,");
+        System.out.println("Because their words had forked no lightning they");
+        System.out.println("Do not go gentle into that good night.");
+        System.out.println("");
+        System.out.println("Good men, the last wave by, crying how bright");
+        System.out.println("Their frail deeds might have danced in a green bay,");
+        System.out.println("Rage, rage against the dying of the light.");
+        System.out.println("");
+        System.out.println("Wild men who caught and sang the sun in flight,");
+        System.out.println("And learn, too late, they grieved it on its way,");
+        System.out.println("Do not go gentle into that good night.");
+        System.out.println("");
+        System.out.println("Grave men, near death, who see with blinding sight");
+        System.out.println("Blind eyes could blaze like meteors and be gay,");
+        System.out.println("Rage, rage against the dying of the light.");
+        System.out.println("");
+        System.out.println("And you, my father, there on the sad height,");
+        System.out.println("Curse, bless, me now with your fierce tears, I pray.");
+        System.out.println("Do not go gentle into that good night.");
+        System.out.println("Rage, rage against the dying of the light.");
+        
+        return space;
+    }
+
+//user decides what words get cleaned
+    public static String customCleanPost(String userInput, String censorTo){
+        String cleanPost = "";
+        String scrubbedWord = "";
+        String poem = goodNight().toLowerCase();
+        
+        int lowerCase = userInput.toLowerCase().indexOf(userInput);
+        int lowerPoem = poem.toLowerCase().indexOf(userInput);
+        if(lowerPoem != -1){
+            cleanPost = poem.replace(userInput, censorTo);
+            scrubbedWord = cleanPost;   
+        }
+        
+        return scrubbedWord;
+        }
+*/
+}
